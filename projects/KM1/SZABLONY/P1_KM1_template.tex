@@ -1,0 +1,96 @@
+% ------------------------------------------------- %
+% ---   NAGŁÓWEK - PROSZĘ NIE ZMIENIAĆ USTAWIEŃ --- %
+% ------------------------------------------------- %
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[polski]{babel}
+\usepackage[T1]{fontenc}
+% Zamiast: \usepackage[margin=1.8cm]{geometry}
+\usepackage[margin=1cm, top=1.4cm, headsep=0.3cm]{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fontawesome5}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\definecolor{tableheader}{RGB}{230, 238, 248}
+\definecolor{scorebg}{RGB}{205, 222, 242}
+\definecolor{primaryblue}{RGB}{30, 75, 140}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small \textbf{Projekt 1} -- Wstęp do Uczenia Maszynowego 2026Z}
+\rhead{\small Raport KM1}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ------------------------------------------------------ %
+% --- KONIEC NAGŁÓWKA - PROSZĘ NIE ZMIENIAĆ USTAWIEŃ --- %
+% ------------------------------------------------------ %
+
+\begin{document}
+
+
+\vspace{-1em}
+\noindent
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\hsize=1.2\hsize}X|>{\hsize=0.8\hsize}X|>{\centering\arraybackslash}m{2.5cm}|}
+\hline
+\rowcolor{tableheader}
+
+% ----------------------------------------------------------- %
+% ---   PROSZĘ UZUPEŁNIĆ TABELĘ W LINIJKACH Z KOMENTARZEM --- %
+% ----------------------------------------------------------- %
+
+\textbf{Imię i Nazwisko:} % WPISZ IMIE I NAZWISKO
+& \textbf{Kierunek:} IAD / MAD % ZOSTAW WŁAŚCIWE
+& \cellcolor{scorebg}\textbf{PUNKTACJA} \\
+\rowcolor{tableheader}
+\textbf{Prowadzący:}  AK / MK / KW % ZOSTAW WŁAŚCIWE
+& \textbf{Numer albumu:} % WPISZ NUMER ALBUMU 
+& \cellcolor{scorebg}\huge{\textbf{ / 8}} \\
+\hline
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+
+\vspace{-1em}
+
+
+\section*{\color{primaryblue}Raport z Kamienia Milowego 1: Eksploracja i przygotowanie danych}
+
+% ----------------------- %
+% ---  TREŚĆ RAPORTU  --- %
+% ----------------------- %
+
+
+\section{Eksploracyjna analiza danych}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsection{Podrozdział 1 (\textit{edit})}
+
+Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin suscipit ligula sit amet nulla.
+
+
+\section{Metryka ewaluacji i podział danych}
+
+Phasellus fermentum in dolor id feugiat. Mauris porta, dui vitae sodales finibus, erat ante hendrerit sapien, eget vestibulum massa dui sit amet nulla. Suspendisse potenti. In hac habitasse platea dictumst. Morbi nec sodales mauris. Proin nec mauris non lectus convallis sollicitudin.
+
+\subsection{Podrozdział 2 (\textit{edit})}
+
+Aliquam erat volutpat. Ut ut dui quam. Vivamus sit amet felis odio. Quisque ac magna sit amet massa tristique hendrerit. Fusce felis quam, pharetra at gravida ac, sodales ac est. Praesent nibh massa, interdum elementum sed, Fusce felis quam, pharetra at gravida ac, sodales ac est.
+
+$$ \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} $$
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\section{Podsumowanie i wnioski}
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+
+% ------------------------------- %
+% ---  KONIEC TREŚCI RAPORTU  --- %
+% ------------------------------- %
+
+\end{document}
