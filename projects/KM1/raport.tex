@@ -104,7 +104,7 @@ Zmienna docelowa (y\_train) jest widocznie skorelowana z terminowością poprzed
 Jako główną metrykę ewaluacji wybrałem ROC AUC. Pozwala ona ocenić zdolność modelu do rozróżniania klientów terminowo spłacających zadłużenie od klientów zagrożonych opóźnieniem, niezależnie od przyjętego progu klasyfikacji.
 Zbiór danych nie jest mocno niezbalansowany, więc nie wymusza to użycia konkretnej metryki pasującej do sposobu niezbalansowania.
 
-Dane podzieliłem na zbiór treningowy (fit) i walidacyjny (val) w proporcji 80:20, z zachowaniem proporcji klas. Do optymalizacji hiperparametrów zastosowałem StratifiedKFold z 10 foldami.
+Dane podzieliłem na zbiór treningowy (fit) i walidacyjny (val) w proporcji 80:20, z zachowaniem proporcji klas. Do optymalizacji hiperparametrów zastosowałem KFold z 10 foldami (dał minimalnie lepszy wynik na zbiorze walidacyjnym niż StratifiedKFold, a dane nie są mocno niezbalansowane, więc nie ma potrzeby używać StratifiedKFold).
 
 \section{Optymalizacja hiperparametrów drzewa decyzyjnego}
 
@@ -116,13 +116,24 @@ Analizowałem wpływ następujących parametrów:
     \item max\_depth - maksymalna głębokość drzewa,
     \item max\_leaf\_nodes - maksymalna liczba liści.
 \end{itemize}
-Najlepszy uzyskany model wykorzystywał kryterium entropy, maksymalną głębokość równą 7 oraz maksymalną liczbę liści równą 18. Uzyskany wynik ROC AUC podczas walidacji krzyżowej wyniósł 0.7412.
+Najlepszy uzyskany model wykorzystywał kryterium entropy, maksymalną głębokość równą 7 oraz maksymalną liczbę liści równą 18. Uzyskany wynik ROC AUC podczas walidacji krzyżowej wyniósł 0.7313.
+
+Entropia daje wyraźnie lepsze wyninki niż gini, co widać na histogramie ROC AUC z podziałem na te dwie kategorie.
+
+Wyniki rosną wraz z głębokością drzewa do około 6-8, dalsze zwiększanie głębokości nie pomaga.
+
+Ilość liści ma optimum w zakresie około 16-22, a od 28 wyraźnie spada, być może zaczyna się overfitting.
 
 \section{Podsumowanie i wnioski}
 
 Wytrenowany model uzyskał ROC AUC równy 0,7759 na zbiorze treningowym, 0,7538 na zbiorze walidacyjnym, i 0,7716 na całości.
 
 Przeprowadzone eksperymenty pozwoliły określić wpływ złożoności drzewa na jakość predykcji oraz wybrać zestaw hiperparametrów stanowiący punkt odniesienia dla kolejnego etapu projektu.
+
+Mam też taką obserwację na następne etapy: patrząc na "wykres" struktury drzewa, widać, że decyzje są podejmowane na podstawie pojedynczych zmiennych,
+wybranych spośród 6 silnie skorelowanych ze sobą zmiennych, i nie ma szczególnego powodu żeby wybrać akurat tę konkretną z nich.
+Uwzględnianie tylko wybranych zmiennych traci dane, a uwzględnianie więcej z nich dawałoby prawdopodobnie za dużo liści i overfitting.
+Podejrzewam, że do tego zadania skuteczniejszy będzie model regresji liniowej, który może uwzględnić wszystkie zmienne z odpowiednimi wagami.
 
 % ------------------------------- %
 % ---  KONIEC TREŚCI RAPORTU  --- %
